@@ -1,17 +1,15 @@
-import './App.css';
-import AppBar from './components/AppBar/AppBar';
-import Login from './components/Login/Login';
-import Registry from './components/Registry/Registry';
+import AppBar from 'components/Layout/AppBar/AppBar';
+import Home from 'pages/Home/Home';
+import Login from 'pages/Login/Login';
+import Registry from 'pages/Registry/Registry';
 
 function App() {
 	return (
 		<div>
 			<AppBar />
-			<div className="container">
-				<Login />
-				
-				<Registry />
-			</div>
+			<Home />
+			<Login />
+			<Registry />
 		</div>
 	);
 }

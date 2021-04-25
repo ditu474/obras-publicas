@@ -2,11 +2,11 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Snackbar from '@material-ui/core/Snackbar';
-import React from 'react';
+import { useState } from 'react';
 import LoginForm from './LoginForm';
 
 export default function Login() {
-	const [open, setOpen] = React.useState(false);
+	const [open, setOpen] = useState(false);
 
 	const handleClick = () => {
 		setOpen(true);
@@ -18,7 +18,7 @@ export default function Login() {
 
 	return (
 		<div>
-			<h2 style={{ textAlign: 'center' }}>Bienvenido!</h2>
+			<h2 style={{ textAlign: 'center' }}>Login</h2>
 			<Card>
 				<CardContent>
 					<LoginForm onLogin={handleClick} />
