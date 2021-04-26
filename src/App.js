@@ -6,9 +6,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 function App() {
 	return (
-		<div>
-			<BrowserRouter>
-				<AppBar />
+		<BrowserRouter>
+			<AppBar />
+			<main>
 				<Switch>
 					<Route path="/" exact>
 						<Home />
@@ -20,8 +20,8 @@ function App() {
 						<Registry />
 					</Route>
 				</Switch>
-			</BrowserRouter>
-		</div>
+			</main>
+		</BrowserRouter>
 	);
 }
 
