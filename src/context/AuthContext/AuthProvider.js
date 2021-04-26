@@ -5,14 +5,16 @@ const DEFAULT_AUTH_STATE = {
 	user: null,
 };
 
-const SET_ACTION = 'SET_USER';
-const REMOVE_ACTION = 'REMOVE_USER';
+const SIGNIN_ACTION = 'SIGNIN';
+const SIGNOUT = 'SIGNOUT';
 
 const authReducer = (state, action) => {
 	switch (action.type) {
-		case SET_ACTION:
-			return DEFAULT_AUTH_STATE;
-		case REMOVE_ACTION:
+		case SIGNIN_ACTION:
+			return {
+				user: action.user,
+			};
+		case SIGNOUT:
 			return DEFAULT_AUTH_STATE;
 		default:
 			return DEFAULT_AUTH_STATE;
@@ -25,23 +27,25 @@ export default function AuthProvider(props) {
 		DEFAULT_AUTH_STATE
 	);
 
-	const setUserHandler = (user) => {
+	const setUserHandler = (user, cb) => {
 		dispatchAuthAction({
-			type: SET_ACTION,
+			type: SIGNIN_ACTION,
 			user,
 		});
+		cb();
 	};
 
-	const removeUserHandler = () => {
+	const removeUserHandler = (cb) => {
 		dispatchAuthAction({
-			type: REMOVE_ACTION,
+			type: SIGNOUT,
 		});
+		cb();
 	};
 
 	const authContext = {
 		user: authState.user,
-		setUser: setUserHandler,
-		removeUser: removeUserHandler,
+		signIn: setUserHandler,
+		signOut: removeUserHandler,
 	};
 
 	return (
