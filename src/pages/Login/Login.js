@@ -28,7 +28,7 @@ export default function Login() {
 				<Snackbar
 					open={open}
 					onClose={closeSnackbarHandler}
-					message="Registro enviado"
+					message="Login enviado"
 				/>
 			)}
 		</div>
