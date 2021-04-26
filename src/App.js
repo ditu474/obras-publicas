@@ -1,6 +1,7 @@
 import AppBar from 'components/Layout/AppBar/AppBar';
 import Home from 'pages/Home/Home';
 import Login from 'pages/Login/Login';
+import NotFound from 'pages/NotFound/NotFound';
 import Registry from 'pages/Registry/Registry';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -18,6 +19,9 @@ function App() {
 					</Route>
 					<Route path="/registro" exact>
 						<Registry />
+					</Route>
+					<Route path="*">
+						<NotFound />
 					</Route>
 				</Switch>
 			</main>

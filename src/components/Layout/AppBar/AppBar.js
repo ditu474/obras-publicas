@@ -11,14 +11,19 @@ export default function AppBar() {
 				<Link to="/" className={styles.link}>
 					<h3>Obras Públicas</h3>
 				</Link>
-				<div>
-					<Link to="/login" className={styles.link}>
-						<Button className={styles.button}>Login</Button>
-					</Link>
-					<Link to="/registro" className={styles.link}>
-						<Button className={styles.button}>Registro</Button>
-					</Link>
-				</div>
+				<nav>
+					<Button>
+						<Link to="/login" className={styles.link}>
+							Login
+						</Link>
+					</Button>
+
+					<Button>
+						<Link to="/registro" className={styles.link}>
+							Registro
+						</Link>
+					</Button>
+				</nav>
 			</Toolbar>
 		</AppBarMaterial>
 	);
