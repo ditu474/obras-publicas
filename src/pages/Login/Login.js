@@ -1,41 +1,36 @@
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Snackbar from '@material-ui/core/Snackbar';
+import Snackbar from 'components/UI/Snackbar/Snackbar';
 import { useState } from 'react';
+import styles from './Login.module.css';
 import LoginForm from './LoginForm';
 
 export default function Login() {
 	const [open, setOpen] = useState(false);
 
-	const handleClick = () => {
+	const openSnackbarHandler = () => {
 		setOpen(true);
 	};
 
-	const handleClose = () => {
+	const closeSnackbarHandler = () => {
 		setOpen(false);
 	};
 
 	return (
-		<div>
-			<h2 style={{ textAlign: 'center' }}>Login</h2>
-			<Card>
+		<div className={styles.content}>
+			<h2>Login</h2>
+			<Card className={styles.card}>
 				<CardContent>
-					<LoginForm onLogin={handleClick} />
+					<LoginForm onLogin={openSnackbarHandler} />
 				</CardContent>
 			</Card>
-			<Snackbar
-				anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-				open={open}
-				autoHideDuration={3000}
-				onClose={handleClose}
-				message="Login Clicked"
-				action={
-					<Button color="secondary" size="small" onClick={handleClose}>
-						Cerrar
-					</Button>
-				}
-			/>
+			{open && (
+				<Snackbar
+					open={open}
+					onClose={closeSnackbarHandler}
+					message="Registro enviado"
+				/>
+			)}
 		</div>
 	);
 }

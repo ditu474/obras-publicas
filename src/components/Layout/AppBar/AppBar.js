@@ -1,32 +1,25 @@
 import AppBarMaterial from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-
-const useStyles = makeStyles(() => ({
-	root: {
-		flexGrow: 1,
-	},
-	title: {
-		flexGrow: 1,
-	},
-}));
+import { Link } from 'react-router-dom';
+import styles from './AppBar.module.css';
 
 export default function AppBar() {
-	const classes = useStyles();
-
 	return (
-		<div className={classes.root}>
-			<AppBarMaterial position="static">
-				<Toolbar>
-					<Typography variant="h6" className={classes.title}>
-						Obras Públicas
-					</Typography>
-					<Button color="inherit">Login</Button>
-					<Button color="inherit">Register</Button>
-				</Toolbar>
-			</AppBarMaterial>
-		</div>
+		<AppBarMaterial position="static">
+			<Toolbar className={`container ${styles.toolbar}`}>
+				<Link to="/" className={styles.link}>
+					<h3>Obras Públicas</h3>
+				</Link>
+				<div>
+					<Link to="/login" className={styles.link}>
+						<Button className={styles.button}>Login</Button>
+					</Link>
+					<Link to="/registro" className={styles.link}>
+						<Button className={styles.button}>Registro</Button>
+					</Link>
+				</div>
+			</Toolbar>
+		</AppBarMaterial>
 	);
 }
