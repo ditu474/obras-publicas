@@ -12,20 +12,22 @@ export default function LoginForm(props) {
 
 	return (
 		<form onSubmit={formSubmitHandler} className={styles.form}>
-			<TextField
-				id="id"
-				label="Identificacion"
-				variant="outlined"
-				type="number"
-				className={styles.input}
-			/>
-			<TextField
-				id="contraseña"
-				label="Contraseña"
-				variant="outlined"
-				type="password"
-				className={styles.input}
-			/>
+			<div className={styles.textField}>
+				<TextField
+					id="id"
+					label="Identificacion"
+					variant="outlined"
+					type="number"
+				/>
+			</div>
+			<div className={styles.textField}>
+				<TextField
+					id="contraseña"
+					label="Contraseña"
+					variant="outlined"
+					type="password"
+				/>
+			</div>
 			<Button variant="contained" color="primary" type="submit">
 				Entrar
 			</Button>

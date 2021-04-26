@@ -3,6 +3,10 @@
 	flex-direction: column;
 }
 
-.input {
+.textField {
 	margin-bottom: 1rem;
+}
+
+.textField > div {
+	width: 100%;
 }
