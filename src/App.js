@@ -1,4 +1,5 @@
 import AppBar from 'components/Layout/AppBar/AppBar';
+import AdminRoute from 'components/PrivateRoute/AdminRoute';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import Home from 'pages/Home/Home';
 import Login from 'pages/Login/Login';
@@ -18,9 +19,9 @@ function App() {
 					<Route path="/login" exact>
 						<Login />
 					</Route>
-					<Route path="/registro" exact>
+					<AdminRoute path="/registro" exact>
 						<Registry />
-					</Route>
+					</AdminRoute>
 					<Route path="*">
 						<NotFound />
 					</Route>

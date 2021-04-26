@@ -3,7 +3,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Snackbar from 'components/UI/Snackbar/Snackbar';
 import AuthContext from 'context/AuthContext/auth-context';
 import { useContext, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import styles from './Login.module.css';
 import LoginForm from './LoginForm';
 
@@ -14,10 +14,10 @@ export default function Login() {
 	const location = useLocation();
 	const { from } = location.state || { from: { pathname: '/' } };
 
-	const openSnackbarHandler = () => {
+	const signInHandler = () => {
 		authCtx.signIn(
 			{
-				isAdmin: true,
+				isAdmin: false,
 			},
 			() => {
 				history.replace(from);
@@ -30,12 +30,22 @@ export default function Login() {
 		setOpen(false);
 	};
 
+	if (authCtx.user) {
+		return (
+			<Redirect
+				to={{
+					pathname: '/',
+				}}
+			/>
+		);
+	}
+
 	return (
 		<div className={styles.content}>
 			<h2>Login</h2>
 			<Card className={styles.card}>
 				<CardContent>
-					<LoginForm onLogin={openSnackbarHandler} />
+					<LoginForm onSignIn={signInHandler} />
 				</CardContent>
 			</Card>
 			{open && (

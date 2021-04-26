@@ -7,7 +7,7 @@ export default function LoginForm(props) {
 
 	const formSubmitHandler = (event) => {
 		event.preventDefault(); /*No se reinicia el form al darle al button*/
-		props.onLogin(); /*Propiedades de padre a hijo*/
+		props.onSignIn(); /*Propiedades de padre a hijo*/
 	};
 
 	return (
